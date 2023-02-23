@@ -9,7 +9,15 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     console.log('product -> ', admin.products);
     const products = admin.products;
-    res.render('shop', { prods: products, pageTitle: 'Shop', path: "/" });
+    res.render('shop',
+        {
+            prods: products,
+            pageTitle: 'Shop',
+            path: '/',
+            hasProducts: products.length > 0,
+            activeShop: true
+        }
+    );
 });
 
 module.exports = router;
